@@ -1,20 +1,20 @@
 # v2b
 
-## wiredify
+## dewiredify
 
 ヴァ行の文字をバ行に変換する
 
 ### usage
 
 ```shell
-$ echo "ジェネレーティヴ・エーアイ" | go run ./bin/wiredify/main.go
+$ echo "ジェネレーティヴ・エーアイ" | go run ./bin/dewiredify/main.go
 ジェネレーティブ・エーアイ
-$ echo "ポヴォ" | go run ./bin/wiredify/main.go
+$ echo "ポヴォ" | go run ./bin/dewiredify/main.go
 ポボ
-$ echo "ヴォーカル" | go run ./bin/wiredify/main.go
+$ echo "ヴォーカル" | go run ./bin/dewiredify/main.go
 ボーカル
-$ echo "カヴァー" | go run ./bin/wiredify/main.go
+$ echo "カヴァー" | go run ./bin/dewiredify/main.go
 カバー
-$ echo "ヴォイストレーニング" | go run ./bin/wiredify/main.go
+$ echo "ヴォイストレーニング" | go run ./bin/dewiredify/main.go
 ボイストレーニング
 ```
