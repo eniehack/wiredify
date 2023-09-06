@@ -17,7 +17,7 @@ func main() {
 		r := []rune(s)
 		q := queue.New([]rune{r[0], r[1]})
 		for i := 0; i < len(r); i++ {
-			if string(q.Seek()) == "ヴ" {
+			if q.Seek() == 'ヴ' {
 				arr := []rune{q.Dequeue(), q.Dequeue()}
 				switch string(arr) {
 				case "ヴァ":
