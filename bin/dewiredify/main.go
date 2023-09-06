@@ -2,7 +2,8 @@ package main
 
 import (
 	"bufio"
-	"fmt"
+	"bytes"
+	"io"
 	"os"
 
 	"github.com/eniehack/wiredize/pkg/queue"
@@ -10,6 +11,7 @@ import (
 
 func main() {
 	scanner := bufio.NewScanner(os.Stdin)
+	buf := new(bytes.Buffer)
 	for scanner.Scan() {
 		s := scanner.Text()
 		r := []rune(s)
@@ -19,7 +21,7 @@ func main() {
 				arr := []rune{q.Dequeue(), q.Dequeue()}
 				switch string(arr) {
 				case "ヴァ":
-					fmt.Print("バ")
+					buf.WriteRune('バ')
 					if i+2 < len(r) {
 						q.Enqueue(r[i+2])
 					}
@@ -28,7 +30,7 @@ func main() {
 					}
 					i += 1
 				case "ヴィ":
-					fmt.Print("ビ")
+					buf.WriteRune('ビ')
 					if i+2 < len(r) {
 						q.Enqueue(r[i+2])
 					}
@@ -37,7 +39,7 @@ func main() {
 					}
 					i += 1
 				case "ヴェ":
-					fmt.Print("ベ")
+					buf.WriteRune('ベ')
 					if i+2 < len(r) {
 						q.Enqueue(r[i+2])
 					}
@@ -46,7 +48,7 @@ func main() {
 					}
 					i += 1
 				case "ヴォ":
-					fmt.Print("ボ")
+					buf.WriteRune('ボ')
 					if i+2 < len(r) {
 						q.Enqueue(r[i+2])
 					}
@@ -55,14 +57,14 @@ func main() {
 					}
 					i += 1
 				default:
-					fmt.Print("ブ")
+					buf.WriteRune('ブ')
 					q.Enqueue(arr[1])
 					if i+2 < len(r) {
 						q.Enqueue(r[i+2])
 					}
 				}
 			} else {
-				fmt.Printf("%c", q.Dequeue())
+				buf.WriteRune(q.Dequeue())
 
 				if i+2 < len(r) {
 					q.Enqueue(r[i+2])
@@ -70,5 +72,7 @@ func main() {
 			}
 		}
 	}
-	fmt.Printf("\n")
+	buf.WriteRune('\n')
+
+	io.Copy(os.Stdout, buf)
 }
