@@ -1,10 +1,25 @@
-# v2b
+# wiredify
 
-## dewiredify
+transform Japanese va-vi-vu-va-vo and Japanese ba-bi-bu-be-bo mutually. 
 
-ヴァ行の文字をバ行に変換する
+## CLI
 
-### usage
+### wiredify
+
+transform Japanese ba-bi-bu-be-bo to Japanese va-vi-vu-va-vo. 
+
+#### usage
+
+```shell
+$ echo "ジェネレーティブ・エーアイ" | go run ./bin/dewiredify/main.go
+ジェネレーティヴ・エーアイ
+```
+
+### dewiredify
+
+transform Japanese va-vi-vu-va-vo to Japanese ba-bi-bu-be-bo
+
+#### usage
 
 ```shell
 $ echo "ジェネレーティヴ・エーアイ" | go run ./bin/dewiredify/main.go
@@ -18,3 +33,50 @@ $ echo "カヴァー" | go run ./bin/dewiredify/main.go
 $ echo "ヴォイストレーニング" | go run ./bin/dewiredify/main.go
 ボイストレーニング
 ```
+
+## library
+
+### install
+
+```shell
+go get -u "github.com/eniehack/wiredify/pkg/wiredify"
+```
+
+### wiredify
+
+```go
+import (
+  "bufio"
+  "bytes"
+
+  "github.com/eniehack/wiredify/pkg/wiredify"
+)
+
+...
+
+h := &wiredify.Handler{
+  In:  bufio.NewScanner(os.Stdin),
+  Out: new(bytes.Buffer),
+}
+h.Wiredify()
+```
+
+### dewiredify
+
+```go
+import (
+  "bufio"
+  "bytes"
+
+  "github.com/eniehack/wiredify/pkg/wiredify"
+)
+
+...
+
+h := &wiredify.Handler{
+  In:  bufio.NewScanner(os.Stdin),
+  Out: new(bytes.Buffer),
+}
+h.Dewiredify()
+```
+
