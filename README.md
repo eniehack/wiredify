@@ -80,3 +80,9 @@ h := &wiredify.Handler{
 h.Dewiredify()
 ```
 
+
+## other implementations
+
+- [eggplants/wiredify](https://github.com/eggplants/wiredify) - an implementation written by Python.
+- [oageo/wiredify](https://github.com/oageo/wiredify) - an implementation written by Rust 
+
